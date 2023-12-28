@@ -1,7 +1,7 @@
 {
   "name": "playwright_work",
   "version": "1.0.0",
-  "description": "",
+  "description": " a testing tool demo practice",
   "main": "index.js",
   "scripts": {},
   "repository": {
@@ -9,7 +9,7 @@
     "url": "git+https://github.com/dhanushyachat/Playwright_Work.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dhanushya R",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dhanushyachat/Playwright_Work/issues"

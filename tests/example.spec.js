@@ -1,19 +1,28 @@
-// @ts-check
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+/*Invoke home page and deploy*/
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+test('home page', async({ page }) => {
+    //Create a new browser context.
+    //const context = await browser.newContext();
+    //Create a new tab/page in the browser
+   // const page = await context.newPage();
+    //invoke url
+    await page.goto('https://practice.expandtesting.com/radio-buttons');
+    //select 'red' radio button
+    const redRadioLocator = page.getByLabel('Red');
+    await redRadioLocator.check();
+    //select 'yellow' radio button
+    const yelloRadioLocator = page.getByLabel('Yellow');
+    await yelloRadioLocator.check();
+    //ensure yellow is checked
+    await expect(yelloRadioLocator).toBeChecked();
+    //check red is unselected
+    console.log(await redRadioLocator.isChecked());
+   //Select favourite sport as football
+   const footballLocator = page.getByLabel('Football');
+   await footballLocator.check();
+   //assertion to check the above
+   console.log(await footballLocator.isChecked());
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+})
